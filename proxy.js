@@ -1,14 +1,15 @@
-// proxy.js
-const express = require('express');
-const fetch = require('node-fetch');  // install with npm install node-fetch
+// proxy.js (ES module)
+import express from 'express';
+import fetch from 'node-fetch';
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Your OpenSky credentials
+// OpenSky credentials
 const username = process.env.OPENSKY_USER || 'Pilot HYPER';
 const password = process.env.OPENSKY_PASS || 'naxgAk-0wedby-bogqir';
 
-// CORS headers so browser can fetch from any origin
+// CORS headers
 app.use((req,res,next)=>{
   res.setHeader("Access-Control-Allow-Origin","*");
   res.setHeader("Access-Control-Allow-Methods","GET");
